@@ -4,7 +4,7 @@ library(shinyAce)
 shinyUI(
   
   pageWithSidebar(
-    headerPanel(h3("PSA Velocity"),windowTitle="PSA Velocity"),
+    headerPanel(h3("PSA Velocity - v0.1"),windowTitle="PSA Velocity"),
     
     sidebarPanel(
       h5("Paste data below:"),
@@ -19,8 +19,9 @@ Sample_2,15/01/2010,0.48
 Sample_3,11/03/2011,0.7"),
       p(),
       actionButton('clearText_button','Clear data'),
+      p(),
       #Choose Field separator
-      radioButtons("fileSepP", "Field Separator:", list("Comma"=1,"Tab"=2,"Semicolon"=3))
+      radioButtons("fileSepP", h5("Field Separator:"), list("Comma"=1,"Tab"=2,"Semicolon"=3))
       ),#pageWithSidebar
     
     mainPanel(
@@ -36,6 +37,7 @@ Sample_3,11/03/2011,0.7"),
         tabPanel("Help",
                  #withMathJax(),
                  #helpText('An irrational number \\(\\sqrt{2}\\) and a fraction $$1-\\frac{1}{2}$$'),
+                 helpText("Under construction...<p><p>"),
                  HTML('<p>This application was developed with XYZ journal Methods as described in this <a href="http://www.ncbi.nlm.nih.gov/pubmed">editorial</a>. <p> The application allows users to calculate PSA velocity using <a href="http://www.ncbi.nlm.nih.gov/pubmed/17197071">three methods</a> from Connolly D paper:<p>'),
                  helpText("1. Arithmetic equation of change in PSA over time (AE)"),
                  helpText("2. Linear regression (LR)"),
