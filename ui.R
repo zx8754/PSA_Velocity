@@ -51,8 +51,7 @@ Sample_3,11/03/2011,0.7"),
 				h6("This application was created by the ",
            a("T.Dadaev", href="https://twitter.com/zx8754"), " and ",
            a("Prof. R. Eeles", href="http://www.icr.ac.uk/our-research/researchers-and-teams/professor-rosalind-eeles"),
-           " labs. Please send bugs and feature requests to T.Dadaev (zx8754(at)gmail.com). This application uses the ",
-           a("shiny package from RStudio", href="http://www.rstudio.com/shiny/"), "."))
+           " labs."))
         )#tabsetPanel
     )#mainPanel
       )#sidebarPanel
