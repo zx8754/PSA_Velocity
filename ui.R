@@ -6,7 +6,7 @@ library(shinyAce)
 shinyUI(
   
   pageWithSidebar(
-    headerPanel(h3("PSA Velocity")),
+    headerPanel(h3("PSA Velocity"),windowTitle="PSA Velocity"),
     
     sidebarPanel(
       h5("Paste data below:"),
