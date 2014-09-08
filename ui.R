@@ -42,7 +42,7 @@ Sample_3,11/03/2011,0.7"),
                  helpText("2. Linear regression (LR)"),
                  helpText("3. Rate of PSA change using first and last values only (FL)"),
                  HTML('<p>A data matrix can be pasted into the application.
-                      <p>PSA Velocity code can be run locally via <a href="https://github.com/VizWizard/BoxPlotR.shiny/blob/master/README.md">GitHub</a>. You can also download and install it as a virtual machine (see <a href="https://github.com/VizWizard/BoxPlotR.shiny/blob/master/README.md">GitHub</a> and FAQs for details). </p>'),
+                      <p>PSA Velocity code can be run locally via <a href="https://github.com/zx8754/PSA_Velocity">GitHub</a>. You can also download and install it as a virtual machine (see <a href="https://github.com/VizWizard/BoxPlotR.shiny/blob/master/README.md">GitHub</a> and FAQs for details). </p>'),
 				h5("Software references"),
 				HTML('<p>R Development Core Team. <i><a href="http://www.r-project.org/">R</a>:  A Language and Environment for Statistical Computing.</i> R Foundation for Statistical Computing, Vienna (2013) <br>
 				     RStudio and Inc. <i><a href="http://www.rstudio.com/shiny/">shiny</a>: Web Application Framework for R.</i> R package version 0.5.0 (2013) <br>'),
