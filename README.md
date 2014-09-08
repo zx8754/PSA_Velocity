@@ -4,10 +4,14 @@ PSA Velocity - Shiny App
 Please find the source code for the tool presented in:
 "Prostate-Specific Antigen Velocity is an important Prostate Cancer predictive marker in a prospective PSA based screening study".(Christos Mikropoulos et al. 2014).
 
-installation
+Run online
+------------
+https://zx8754.shinyapps.io/PSA_Velocity/
+
+Run locally
 ------------
 
-Before running the app you will need to have R and RStudio installed (tested with R 3.0.2 and RStudio 0.97.449).
+Before running the app you will need to have R and RStudio installed (tested with R version 3.1.0, 2014-04-10, Platform: x86_64-w64-mingw32/x64).
 
 - Please run those lines in R:
   - install.packages("shiny")
