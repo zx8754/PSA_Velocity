@@ -1,8 +1,6 @@
-# Load shiny library
 library(shiny)
 library(shinyAce)
 
-# All UI elements must be inside shinyUI()
 shinyUI(
   
   pageWithSidebar(
