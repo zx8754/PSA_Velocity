@@ -14,7 +14,6 @@ Before running the app you will need to have R and RStudio installed (tested wit
   - install.packages("devtools")
   - devtools::install_github("shiny-incubator","rstudio")
   - install.packages("ggplot2")
-  - install.packages("shiny")
   - install.packages("shinyAce")
 
 - Run the tool:
