@@ -64,7 +64,8 @@ shinyServer(
         geom_point() +
         geom_line(colour="green") +
         geom_smooth(method=lm,se=FALSE) +
-        geom_line(data=d[ d$FirstLast==1,], aes(x=PSA_Date,y=PSA),col="red") +
+        geom_line(data=d[ d$FirstLast==1 & !(is.na(d$PSA_Date)),],
+                  aes(x=PSA_Date,y=PSA),col="red") +
         theme_classic()
       
     })
