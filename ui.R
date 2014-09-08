@@ -8,6 +8,8 @@ shinyUI(
     
     sidebarPanel(
       h5("Paste data below:"),
+      
+      #Example input data
       tags$textarea(id="PasteData", rows=10, cols=50, placeholder="SampleID,PSA_Date,PSA","Sample_1,19/09/2008,0.77
 Sample_1,15/01/2010,0.48
 Sample_1,11/03/2011,0.7
@@ -17,13 +19,12 @@ Sample_2,15/01/2010,0.48
 Sample_3,11/03/2011,0.7"),
       p(),
       actionButton('clearText_button','Clear data'),
+      #Choose Field separator
       radioButtons("fileSepP", "Field Separator:", list("Comma"=1,"Tab"=2,"Semicolon"=3))
       ),#pageWithSidebar
     
     mainPanel(
-      
       tabsetPanel(type = "pills",
-        # Welcome tab
         tabPanel("Input Data",tableOutput("PSAV")),
         tabPanel("Result",
                  tableOutput("PSAV_result"),
