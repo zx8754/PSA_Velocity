@@ -6,11 +6,14 @@ source("udf_PSA_velocity.R")
 shinyServer(
   function(input, output, session) {
     
+    #if Clear pressed then clear the text box
     observe({
       if (input$clearText_button == 0) return()
       isolate({ updateTextInput(session, "PasteData", label = ",", value = "") })
     })
     
+    #Input Data Tab --------------------------------------------------------------
+    #Convert pasted text into a dataframe
     datPSA <- reactive({
       if(is.null(input$PasteData)) {return(NULL)}
       mySep<-switch(input$fileSepP, '1'=",",'2'="\t",'3'=";")
@@ -21,16 +24,21 @@ shinyServer(
                       PSA=as.numeric(x[,3]),stringsAsFactors = FALSE)
     })
     
+    #Get results using udf_PSA_velocity function
     datPSAResult <- reactive({udf_PSA_velocity(datPSA())})
 
+    #Show input data as table on "Input Data" tab
     output$PSAV <- renderTable({
       datPSA()
       })
     
+    #Result Tab --------------------------------------------------------------
+    #Output for "Result" tab
     output$PSAV_result <- renderTable({
       datPSAResult()
     }, digits=4)
     
+    #Option to download Results
     output$downloadResult <- downloadHandler(
       filename = function() { 
         "PSAV_results.csv" 
@@ -38,6 +46,7 @@ shinyServer(
       content = function(file) {
         write.csv(datPSAResult(), file,row.names=FALSE)})
     
+    #Plot Tab --------------------------------------------------------------
     #Dynamic input - Select Sample for plot
     output$SampleID <- renderUI({
       selectInput("SampleID", strong("Sample ID:"),
