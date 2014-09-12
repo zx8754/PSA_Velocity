@@ -10,7 +10,7 @@ shinyUI(
       h5("Paste data below:"),
       
       #Example input data
-      tags$textarea(id="PasteData", rows=10, cols=50, placeholder="PatientID,PSA_Date,PSA","Sample_1,19/09/2008,0.77
+      tags$textarea(id="PasteData", rows=10, cols=50, placeholder="PatientID,PSA_Date,PSA","Patient_1,19/09/2008,0.77
 Patient_1,15/01/2010,0.48
 Patient_1,11/03/2011,0.7
 Patient_1,23/03/2012,0.53
