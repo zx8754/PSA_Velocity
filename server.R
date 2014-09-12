@@ -49,7 +49,7 @@ shinyServer(
     #Plot Tab --------------------------------------------------------------
     #Dynamic input - Select Sample for plot
     output$PatientID <- renderUI({
-      selectInput("PatientID", strong("Sample ID:"),
+      selectInput("PatientID", strong("Patient ID:"),
                   choices = sort(unique(datPSA()$PatientID)))
     })
     
