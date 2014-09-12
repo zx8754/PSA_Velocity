@@ -10,13 +10,13 @@ shinyUI(
       h5("Paste data below:"),
       
       #Example input data
-      tags$textarea(id="PasteData", rows=10, cols=50, placeholder="SampleID,PSA_Date,PSA","Sample_1,19/09/2008,0.77
-Sample_1,15/01/2010,0.48
-Sample_1,11/03/2011,0.7
-Sample_1,23/03/2012,0.53
-Sample_2,19/09/2008,0.77
-Sample_2,15/01/2010,0.48
-Sample_3,11/03/2011,0.7"),
+      tags$textarea(id="PasteData", rows=10, cols=50, placeholder="PatientID,PSA_Date,PSA","Sample_1,19/09/2008,0.77
+Patient_1,15/01/2010,0.48
+Patient_1,11/03/2011,0.7
+Patient_1,23/03/2012,0.53
+Patient_2,19/09/2008,0.77
+Patient_2,15/01/2010,0.48
+Patient_3,11/03/2011,0.7"),
       p(),
       actionButton('clearText_button','Clear data'),
       p(),
@@ -31,7 +31,7 @@ Sample_3,11/03/2011,0.7"),
                  tableOutput("PSAV_result"),
                  downloadButton("downloadResult", "Download")),
         tabPanel("Plot",
-                 uiOutput("SampleID"),
+                 uiOutput("PatientID"),
                  plotOutput("SamplePlot"),
                  tableOutput("PSAV_result_selected")),
         tabPanel("Help",
