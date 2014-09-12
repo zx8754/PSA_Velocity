@@ -19,7 +19,7 @@ shinyServer(
       mySep<-switch(input$fileSepP, '1'=",",'2'="\t",'3'=";")
       x <- matrix(strsplit(input$PasteData, "\n")[[1]])
       x <- do.call(rbind,lapply(x,function(i){strsplit(i,mySep)[[1]]}))
-      x <- data.frame(SampleID=x[,1],
+      x <- data.frame(PatientID=x[,1],
                       PSA_Date=x[,2],
                       PSA=as.numeric(x[,3]),stringsAsFactors = FALSE)
     })
@@ -48,14 +48,14 @@ shinyServer(
     
     #Plot Tab --------------------------------------------------------------
     #Dynamic input - Select Sample for plot
-    output$SampleID <- renderUI({
-      selectInput("SampleID", strong("Sample ID:"),
-                  choices = sort(unique(datPSA()$SampleID)))
+    output$PatientID <- renderUI({
+      selectInput("PatientID", strong("Sample ID:"),
+                  choices = sort(unique(datPSA()$PatientID)))
     })
     
     ##plot for selected sample
     output$SamplePlot <- renderPlot({
-      d <- datPSA()[ datPSA()$SampleID == input$SampleID,]
+      d <- datPSA()[ datPSA()$PatientID == input$PatientID,]
       d$PSA_Date <- as.Date(d$PSA_Date,"%d/%m/%Y")
       d$FirstLast <- ifelse(d$PSA_Date %in% c(min(d$PSA_Date,na.rm=TRUE),
                                               max(d$PSA_Date,na.rm=TRUE)),1,0)
@@ -70,7 +70,7 @@ shinyServer(
       
     })
     output$PSAV_result_selected <- renderTable({
-      datPSAResult()[datPSAResult()$SampleID==input$SampleID,]
+      datPSAResult()[datPSAResult()$PatientID==input$PatientID,]
     }, digits=4)
     
     
