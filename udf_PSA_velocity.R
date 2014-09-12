@@ -13,21 +13,21 @@ udf_PSA_velocity <- function(dat) {
   # Connolly D1, Black A, Murray LJ, Napolitano G, Gavin A, Keane PF.
   
   # Input data.frame format:
-  # SampleID   PSA_Date PSA
-  # Sample_1 18/07/2011 4.2
-  # Sample_2 18/04/2008 2.2
-  # Sample_2 08/05/2009 2.8
-  # Sample_2 07/04/2010 3.3
+  # PatientID   PSA_Date PSA
+  # Patient_1 18/07/2011 4.2
+  # Patient_2 18/04/2008 2.2
+  # Patient_2 08/05/2009 2.8
+  # Patient_2 07/04/2010 3.3
   
   # Workspace ---------------------------------------------------------------
   #setwd("C:/Users/tdadaev/Desktop/Projects/Impact/PSAvelocity/R")
   date_prefix <- substr(Sys.time(),1,10)
   
   # Data prep ---------------------------------------------------------------
-  #exclude samples with no PSA
+  #exclude Patients with no PSA
   dat <- dat[ !is.na(dat$PSA),]
-  #split by sample - list
-  dat <- split(dat,dat$SampleID)
+  #split by Patient - list
+  dat <- split(dat,dat$PatientID)
   
   # Calculate PSA Velocity - 3 methods --------------------------------------
   PSAV <-
@@ -35,7 +35,7 @@ udf_PSA_velocity <- function(dat) {
             #loop through each patient
             lapply(dat,function(ind){
               #ind=as.data.frame(dat[[3]])
-              d <- data.frame(SampleID=ind[,1],
+              d <- data.frame(PatientID=ind[,1],
                               PSADate=as.Date(ind[,2],"%d/%m/%Y"),
                               PSA=ind[,3])
               #sort by date
@@ -72,7 +72,7 @@ udf_PSA_velocity <- function(dat) {
                 FL=NA}
               
               #return results
-              data.frame(SampleID=unique(d$SampleID),
+              data.frame(PatientID=unique(d$PatientID),
                          PSA.Count=nrow(d),
                          #output as per YEAR
                          AE=AE*365.242,
